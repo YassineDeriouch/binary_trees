@@ -24,6 +24,6 @@ int main(void)
     ret = binary_tree_is_leaf(root->right);
     printf("Is %d a leaf: %d\n", root->right->n, ret);
     ret = binary_tree_is_leaf(root->right->right);
-    printf("Is %d a leaf: %d\n", root->right->right->n, ret);
+    printf("Is %d a leaf: %d\n", root->right->right->n, ret);   
     return (0);
 }
