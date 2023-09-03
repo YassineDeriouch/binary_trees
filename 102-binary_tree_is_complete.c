@@ -59,7 +59,6 @@ void _push(binary_tree_t *node, link_t *head, link_t **tail)
 	(*tail)->next = new;
 	*tail = new;
 }
-
 /**
  * _pop - Function that pops a node into the stack
  * @head: Type head node of in the stack
