@@ -11,18 +11,22 @@
 
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
 {
-    if (first == NULL || second == NULL)
-        return NULL;
+	binary_tree_t *n1, *n2;
 
-    if (first == second)
-        return (binary_tree_t *)first;
+	if (first == NULL || second == NULL)
+		return (NULL);
+		
+	if (first == second)
+		return ((binary_tree_t *)first);
 
-    binary_tree_t *left_LCA = binary_trees_ancestor(first->parent, second);
-    binary_tree_t *right_LCA = binary_trees_ancestor(first, second->parent);
+	n1 = first->parent,
+	n2 = second->parent;
 
-    if (left_LCA != NULL && right_LCA != NULL)
-        return (binary_tree_t *)first;
+	if (first == n2 || !n1 || (!n1->parent && n2))
+		return (binary_trees_ancestor(first, n2));
 
-    return (left_LCA != NULL) ? left_LCA : right_LCA;
+	if (second == n1 || !n2 || (!n2->parent && n1))
+		return (binary_trees_ancestor(n1, second));
+
+	return (binary_trees_ancestor(n1, n2));
 }
-
